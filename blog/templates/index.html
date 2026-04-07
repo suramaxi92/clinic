@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <h1>Welcome to Clinic Management System</h1>
+
+        <ul>
+            <li><a href="/blog/add_patient/">Add Patient</a></li>
+            <li><a href="/blog/patients/">View Patients</a></li>
+            <li><a href="/blog/add_medicine/">Add Medicine</a></li>
+        </ul>
+    </div>
+{% endblock %}

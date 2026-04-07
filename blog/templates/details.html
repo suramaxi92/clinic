@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="patient-container">
+
+    <h2>Patient Details</h2>
+
+    <div class="patient-card">
+
+        <!-- Patient Image -->
+        <div class="patient-image">
+            <img src="{{ patient.patient_img }}" alt="Patient Image">
+        </div>
+
+        <!-- Patient Info -->
+        <div class="patient-info">
+            <p><strong>ID:</strong> {{ patient.id }}</p>
+            <p><strong>Name:</strong> {{ patient.name }}</p>
+            <p><strong>Age:</strong> {{ patient.age }}</p>
+            <p><strong>Prescription:</strong> {{ patient.prescription }}</p>
+            <p><strong>Last Visit:</strong> {{ patient.last_visit }}</p>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content">
+
+    <h2>Patient List</h2>
+
+    <table class="patient-table">
+        <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>View</th>
+        </tr>
+        
+        {% if patients %}
+        {% for patient in patients %}
+        <tr>
+            <td>{{ patient.id }}</td>
+
+            <!-- Image placeholder -->
+            <td>
+                <img src="{{ patient.patient_img }}" width="60" height="60">
+            </td>
+
+            <td>{{ patient.name }}</td>
+            <td>{{ patient.age }}</td>
+
+            <td>
+                <a href="{% url 'blog:patient' id=patient.id %}" class="btn">View</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="5">No patients found.</td>
+        </tr>
+        {% endif %}
+
+    </table>
+
+</div>
+{% endblock %}

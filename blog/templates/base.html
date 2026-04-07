@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clinic</title>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <!-- Page-specific CSS -->
+    {% block extra_css %}
+    {% endblock %}
+</head>
+<body>
+
+    <header>
+        <h2>Clinic System</h2>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <p>Contact us: info@clinic.com <br>
+            {{page_name | lower | default:"No page name"}}
+        </p>
+    </footer>
+
+</body>
+</html>
