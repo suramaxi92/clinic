@@ -35,3 +35,10 @@ def add_patients(request):
         return redirect(reverse("blog:index"))
     return render(request, "add_patients.html")
 
+def contact(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+        return render(request, "contact.html", {"success": True})
+    return render(request, "contact.html")

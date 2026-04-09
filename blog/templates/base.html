@@ -21,9 +21,12 @@
     {% endblock %}
 
     <footer>
-        <p>Contact us: info@clinic.com <br>
+    
+        <a href="{% url 'blog:contact' %}" class="btn">Contact us</a>
+        <p>
             {{page_name | lower | default:"No page name"}}
         </p>
+    
     </footer>
 
 </body>

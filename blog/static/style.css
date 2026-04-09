@@ -167,3 +167,10 @@ form textarea {
 form button {
     margin-top: 20px;
 }
+
+
+/* ===== CONTACT FORM ===== */
+
+.form-container textarea {
+    resize: none;
+}
