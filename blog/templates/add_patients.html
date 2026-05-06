@@ -14,11 +14,46 @@
         <label>Age:</label>
         <input type="number" name="age" required>
 
-        <label>Prescription:</label>
-        <textarea name="prescription" rows="3"></textarea>
+        <!-- MEDICINE SECTION -->
+        <h3>Medicines</h3>
 
-        <button type="submit" class="btn">Add Patient</button>
+        <div id="medicine-container">
+            <!-- Cards will be added here -->
+        </div>
+
+        <!-- PLUS BUTTON -->
+        <button type="button" onclick="addMedicine()" class="btn">+ Add Medicine</button>
+
+        <br><br>
+        <button type="submit" class="btn">Save Patient</button>
     </form>
 
 </div>
+
+<div id="medicine-template" style="display:none;">
+    <div class="medicine-card">
+
+        <label>Medicine:</label>
+        <select name="medicine">
+            {% for med in medicines %}
+                <option value="{{ med.id }}">{{ med.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Quantity:</label>
+        <input type="number" name="quantity">
+
+    </div>
+</div>
+
+<script>
+function addMedicine() {
+    // Get template
+    let template = document.getElementById("medicine-template").innerHTML;
+
+    // Add it inside container
+    let container = document.getElementById("medicine-container");
+    container.insertAdjacentHTML("beforeend", template);
+}
+</script>
 {% endblock %}

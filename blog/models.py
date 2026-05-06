@@ -7,8 +7,15 @@ class patients(models.Model):
     name = models.CharField(max_length=50)
     age = models.IntegerField()
     prescription = models.TextField()
-    patient_img = models.URLField(max_length=200, null=True)
     last_visit = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+    
+class medicine(models.Model):
+    name = models.CharField(max_length=100)
+    quantity = models.IntegerField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return self.name

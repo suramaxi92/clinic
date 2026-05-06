@@ -174,3 +174,78 @@ form button {
 .form-container textarea {
     resize: none;
 }
+
+/* ===== ADD MEDICINE FORM ===== */
+
+.form-container {
+    width: 40%;
+    margin: 40px auto;
+    background-color: white;
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    margin-top: 20px;
+}
+
+/* Success message */
+.success-msg {
+    color: green;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Action buttons */
+.action-buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.exit-btn {
+    background-color: #e74c3c;
+}
+
+.exit-btn:hover {
+    background-color: #c0392b;
+}
+
+.view-btn {
+    background-color: #2ecc71;
+}
+
+.view-btn:hover {
+    background-color: #27ae60;
+}
+
+.medicine-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}

@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.urls import reverse
-from .models import patients
+from requests import request
+from .models import patients, medicine
 
 # Create your views here.
 def index(request):
@@ -26,14 +27,25 @@ def patients_list(request):
     return render(request, "patients_list.html", {"page_name": page_title, "patients": Patients})
 
 def add_patients(request):
+    medicines = medicine.objects.all()
+    med_ids = request.POST.getlist("medicine")
+    qtys = request.POST.getlist("quantity")
+    prescription_text = ""
     if request.method == "POST":
         name = request.POST.get("name")
         age = request.POST.get("age")
-        prescription = request.POST.get("prescription")
-        new_patient = patients(name=name, age=age, prescription=prescription)
+        
+        for i in range(len(med_ids)):
+            med = medicine.objects.get(id=med_ids[i])
+            qty = int(qtys[i])
+            prescription_text += f"{med.name} - {qty}\n"
+            med.quantity -= qty
+            med.save()
+
+        new_patient = patients(name=name, age=age, prescription=prescription_text)
         new_patient.save()
         return redirect(reverse("blog:index"))
-    return render(request, "add_patients.html")
+    return render(request, "add_patients.html", {"medicines": medicines})
 
 def contact(request):
     if request.method == "POST":
@@ -42,3 +54,18 @@ def contact(request):
         message = request.POST.get("message")
         return render(request, "contact.html", {"success": True})
     return render(request, "contact.html")
+
+def add_medicine(request):
+    success = False
+    if request.method == "POST":
+        name = request.POST.get("name")
+        quantity = request.POST.get("quantity")
+        price = request.POST.get("price")
+        new_medicine = medicine(name=name, quantity=quantity, price=price)
+        new_medicine.save()
+        success = True
+    return render(request, "add_medicine.html", {"success": success})
+
+def list_medicines(request):
+    medicines = medicine.objects.all()
+    return render(request, "medicine_list.html", {"medicines": medicines})

@@ -9,7 +9,6 @@
     <table class="patient-table">
         <tr>
             <th>ID</th>
-            <th>Image</th>
             <th>Name</th>
             <th>Age</th>
             <th>View</th>
@@ -19,11 +18,6 @@
         {% for patient in patients %}
         <tr>
             <td>{{ patient.id }}</td>
-
-            <!-- Image placeholder -->
-            <td>
-                <img src="{{ patient.patient_img }}" width="60" height="60">
-            </td>
 
             <td>{{ patient.name }}</td>
             <td>{{ patient.age }}</td>
