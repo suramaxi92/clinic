@@ -13,13 +13,30 @@
 </head>
 <body>
 
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%; 
+        }
+    
+        h2 {
+            margin: 0; 
+            }
+    </style>
+
     <header>
+        <p>
+            {{page_name | lower | default:"No page name"}}
+        </p>
         <h2>Clinic System</h2>
+        <a href="{% url 'blog:contact' %}" class="btn">Contact us</a>
     </header>
 
     {% block content %}
     {% endblock %}
-
+<!--
     <footer>
     
         <a href="{% url 'blog:contact' %}" class="btn">Contact us</a>
@@ -28,6 +45,6 @@
         </p>
     
     </footer>
-
+-->
 </body>
 </html>
