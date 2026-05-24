@@ -53,7 +53,7 @@ footer {
 }
 
 .btn:hover {
-    background-color: #2980b9;
+    background-color: #06314e;
 }
 
 /* ===== PATIENT TABLE ===== */
@@ -252,4 +252,193 @@ form button {
 
 .contact_button {
     margin-left: auto;
+}
+
+/* ===== BODY ===== */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+}
+
+/* ===== HEADER ===== */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 5%;
+
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* ===== PAGE INFO ===== */
+
+.page-info p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* ===== LOGO ===== */
+
+.logo h2 {
+    margin: 0;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+    display: flex;
+    gap: 10px;
+}
+
+/* ===== NAV BUTTONS ===== */
+
+.nav-btn {
+    text-decoration: none;
+
+    background-color: #34495e;
+    color: white;
+
+    padding: 10px 15px;
+
+    border-radius: 5px;
+
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+
+.nav-btn:hover {
+    background-color: #1abc9c;
+}
+
+/* ===== MAIN CONTENT ===== */
+
+main {
+    padding: 30px;
+}
+
+/* ===== FORM CONTAINER ===== */
+
+.form-container {
+    width: 40%;
+    margin: auto;
+
+    background-color: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* ===== FORM ===== */
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+
+form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Inputs */
+
+form input,
+form textarea,
+form select {
+    margin-top: 5px;
+
+    padding: 10px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+}
+
+/* ===== BUTTON ===== */
+
+.btn {
+    margin-top: 20px;
+
+    background-color: #3498db;
+    color: white;
+
+    border: none;
+
+    padding: 10px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+/* Hover */
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+/* ===== TABLE ===== */
+
+.patient-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background-color: white;
+}
+
+/* Table Cells */
+
+.patient-table th,
+.patient-table td {
+    border: 1px solid #ccc;
+
+    padding: 10px;
+
+    text-align: center;
+}
+
+/* Header */
+
+.patient-table th {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Alternate Rows */
+
+.patient-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover Row */
+
+.patient-table tr:hover {
+    background-color: #e6f2ff;
+}
+
+/* ===== MEDICINE CARD ===== */
+
+.medicine-card {
+    border: 1px solid #ccc;
+
+    padding: 15px;
+
+    margin-top: 15px;
+
+    border-radius: 8px;
+
+    background-color: #f9f9f9;
 }

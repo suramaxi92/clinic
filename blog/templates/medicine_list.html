@@ -1,9 +1,82 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<style>
+
+.add-med-button{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.btn{
+    padding: 8px 15px;
+    border: none;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* TABLE */
+
+.patient-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.patient-table th,
+.patient-table td{
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+/* MODAL */
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content{
+    background-color: white;
+    width: 400px;
+    margin: 8% auto;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+</style>
+
 <h2>Medicines List</h2>
 
+<div class="add-med-button">
+
+    <button class="btn" onclick="openModal()">
+        Add Medicine
+    </button>
+
+</div>
+
 <table class="patient-table">
+
     <tr>
         <th>Name</th>
         <th>Quantity</th>
@@ -17,6 +90,46 @@
         <td>{{ med.price }}</td>
     </tr>
     {% endfor %}
+
 </table>
+
+
+<!-- POPUP -->
+
+<div id="medicineModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">
+            &times;
+        </span>
+
+        {% include 'medicine_form.html' %}
+
+    </div>
+
+</div>
+
+
+<script>
+
+function openModal(){
+    document.getElementById("medicineModal").style.display = "block";
+}
+
+function closeModal(){
+    document.getElementById("medicineModal").style.display = "none";
+}
+
+window.onclick = function(event){
+
+    let modal = document.getElementById("medicineModal");
+
+    if(event.target == modal){
+        modal.style.display = "none";
+    }
+}
+
+</script>
 
 {% endblock %}

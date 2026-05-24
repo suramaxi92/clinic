@@ -2,49 +2,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Clinic</title>
+    <title>Clinic System</title>
 
     <!-- Global CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <!-- Page-specific CSS -->
+    <!-- Extra CSS -->
     {% block extra_css %}
     {% endblock %}
 </head>
+
 <body>
 
-    <style>
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 5%; 
-        }
-    
-        h2 {
-            margin: 0; 
-            }
-    </style>
-
+    <!-- HEADER -->
     <header>
-        <p>
-            {{page_name | lower | default:"No page name"}}
-        </p>
-        <h2>Clinic System</h2>
-        <a href="{% url 'blog:contact' %}" class="btn">Contact us</a>
+
+        <!-- Left Side -->
+        <div class="page-info">
+            <a href="{% url 'blog:index' %}" class="nav-btn">
+                Home
+            </a>
+        </div>
+
+        <!-- Center -->
+        <div class="logo">
+            <h2>Clinic System</h2>
+        </div>
+
+        <!-- Right Side Navigation -->
+        <nav class="navbar">
+
+            <a href="{% url 'blog:add_patients' %}" class="nav-btn">
+                Add Patient
+            </a>
+
+            <a href="{% url 'blog:patients_list' %}" class="nav-btn">
+                View Patients
+            </a>
+
+            <a href="{% url 'blog:medicine_list' %}" class="nav-btn">
+                Inventory
+            </a>
+
+            <a href="{% url 'blog:contact' %}" class="nav-btn">
+                Contact
+            </a>
+
+        </nav>
+
     </header>
 
-    {% block content %}
-    {% endblock %}
-<!--
-    <footer>
-    
-        <a href="{% url 'blog:contact' %}" class="btn">Contact us</a>
-        <p>
-            {{page_name | lower | default:"No page name"}}
-        </p>
-    
-    </footer>
--->
+    <!-- PAGE CONTENT -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
 </body>
 </html>

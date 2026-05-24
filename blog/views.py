@@ -67,5 +67,13 @@ def add_medicine(request):
     return render(request, "add_medicine.html", {"success": success})
 
 def list_medicines(request):
+    success = False
+    if request.method == "POST":
+        name = request.POST.get("name")
+        quantity = request.POST.get("quantity")
+        price = request.POST.get("price")
+        new_medicine = medicine(name=name, quantity=quantity, price=price)
+        new_medicine.save()
+        success = True
     medicines = medicine.objects.all()
     return render(request, "medicine_list.html", {"medicines": medicines})

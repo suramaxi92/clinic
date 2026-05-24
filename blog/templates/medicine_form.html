@@ -1,0 +1,22 @@
+<h2>Add Medicine</h2>
+
+{% if success %}
+    <p class="success-msg">Medicine added successfully!</p>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Medicine Name:</label>
+    <input type="text" name="name" required>
+
+    <label>Quantity:</label>
+    <input type="number" name="quantity" required>
+
+    <label>Price:</label>
+    <input type="number" step="0.01" name="price" required>
+
+    <button type="submit" class="btn">
+        Add Medicine
+    </button>
+</form>
