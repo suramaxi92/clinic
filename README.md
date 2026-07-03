@@ -17,7 +17,7 @@ This is a simple Django-based web application to manage patient records, includi
 ## 📂 Project Setup
 
 ### 1️⃣ Clone the repository
-git clone https://github.com/your-username/project-name.git
+git clone https://github.com/suramaxi92/clinic.git
 cd project-name
 
 ### 2️⃣ Install dependencies
@@ -35,7 +35,6 @@ http://127.0.0.1:8000/blog/index
 
 ## 🤝 Contributors
 - Surendar B
-- Yet to be added
 
 ## 📌 Future Improvements
 - Add login system
